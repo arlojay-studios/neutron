@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "module": "node16",
+        "target": "es2020",
+        "baseUrl": "./",
+        "paths": {
+            "@arlojay-studios/proton-atomic":["node_modules/@arlojay-studios/proton-atomic"],
+            "@arlojay-studios/electron-atomic":["node_modules/@arlojay-studios/electron-atomic"]
+        }
+    }
+}
