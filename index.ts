@@ -4,7 +4,7 @@
  * Module Imports
  */
 
-import {Response, Request, Application} from 'express';
+import { Response, Request, Application } from 'express';
 import { protonDB, protonUUID } from '@arlojay-studios/proton-atomic/core'
 import { electron } from '@arlojay-studios/electron-atomic/web';
 
@@ -13,7 +13,7 @@ import { electron } from '@arlojay-studios/electron-atomic/web';
  * @public
  */
 
-export class protonServer {
+export class neutronServer {
     private server: Application = require('express')()
     private db: protonDB;
     private validator: protonUUID;
@@ -27,8 +27,6 @@ export class protonServer {
 
     public async init(port: number): Promise<typeof this.db> {
         
-        
-
         try {
             await this.db.open();
             await this.db.run(`
