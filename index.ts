@@ -4,9 +4,9 @@
  * Module Imports
  */
 
-import { protonDB, protonUUID } from '@arlojay-studios/proton-atomic';
-import { Request, Response, Application } from 'express';
-import { electron } from '@arlojay-studios/electron-atomic';
+import {Response, Request, Application} from 'express';
+import { protonDB, protonUUID } from '@arlojay-studios/proton-atomic/core'
+import { electron } from '@arlojay-studios/electron-atomic/web';
 
 /**
  * Request Handler
@@ -16,7 +16,7 @@ import { electron } from '@arlojay-studios/electron-atomic';
 export class protonServer {
     private server: Application = require('express')()
 
-    public async init(port: number, dbPath?: string): Promise<typeof db> {
+    public async init(port: number, dbPath: string): Promise<typeof db> {
 
         const db = new protonDB(dbPath);
         const validatior = new protonUUID();
