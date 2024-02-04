@@ -20,6 +20,7 @@ export class protonServer {
 
         const db = new protonDB(dbPath);
         const validatior = new protonUUID();
+        const web = new electron();
 
         try {
             await db.open();
@@ -68,11 +69,11 @@ export class protonServer {
 
             this.server.get('/', (req: Request, res: Response) => {
                 const clientUUID = req.get('client-uuid')
-                electron.mainPage(res);
+                web.mainPage(res);
             });
 
             this.server.get('/web.ts', (req: Request, res: Response) => {
-                electron.script(res);
+                web.script(res);
             });
 
             this.server.listen(port, () => {
