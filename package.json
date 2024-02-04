@@ -1,0 +1,25 @@
+{
+  "name": "@arlojay-studios/neutron-atomic",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "version": "0.0.1",
+  "description": "Server Module for Atomic",
+  "main": "index.ts",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arlojay-studios/neutron.git"
+  },
+  "author": "Arlojay Studios",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/arlojay-studios/neutron/issues"
+  },
+  "homepage": "https://github.com/arlojay-studios/neutron#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "minimist": "^1.2.8"
+  }
+}
