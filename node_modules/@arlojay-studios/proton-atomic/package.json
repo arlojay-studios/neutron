@@ -1,0 +1,24 @@
+{
+  "name": "@arlojay-studios/proton-atomic",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "version": "0.0.1",
+  "description": "API Modules for Atomic",
+  "main": "index.ts",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arlojay-studios/proton.git"
+  },
+  "author": "Arlojay Studios",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/arlojay-studios/proton/issues"
+  },
+  "homepage": "https://github.com/arlojay-studios/proton#readme",
+  "dependencies": {
+    "sqlite3": "^5.1.7",
+    "uuid": "^9.0.1"
+  }
+}

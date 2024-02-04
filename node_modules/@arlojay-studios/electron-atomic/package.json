@@ -1,0 +1,20 @@
+{
+  "name": "@arlojay-studios/electron-atomic",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "version": "0.0.1",
+  "description": "Client Module for Atomic",
+  "main": "index.ts",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arlojay-studios/electron.git"
+  },
+  "author": "Arlojay Studios",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/arlojay-studios/electron/issues"
+  },
+  "homepage": "https://github.com/arlojay-studios/electron#readme"
+}
