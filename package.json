@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/arlojay-studios/neutron#readme",
   "dependencies": {
-    "@arlojay-studios/electron-atomic": "^0.0.2",
-    "@arlojay-studios/proton-atomic": "^0.0.2",
+    "@arlojay-studios/electron-atomic": "^0.0.3",
+    "@arlojay-studios/proton-atomic": "^0.0.3",
     "express": "^4.18.2"
   },
   "devDependencies": {
