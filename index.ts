@@ -4,7 +4,7 @@
  * Module Imports
  */
 
-import { Response, Request, Application } from 'express';
+import type { Response, Request, Application } from 'express';
 import { protonDB, protonUUID } from '@arlojay-studios/proton-atomic/core'
 import { electron } from '@arlojay-studios/electron-atomic/web';
 
@@ -19,24 +19,35 @@ export class neutronServer {
     private validator: protonUUID;
     private web: electron;
 
+    /**
+     * Create a new server instance
+     * @param dbPath - Path of an existing database
+     */
+
     constructor(dbPath: string) {
         this.db = new protonDB(dbPath);
         this.validator = new protonUUID();
         this.web = new electron();
     }
 
-    public async init(port: number): Promise<typeof this.db> {
-        
+    /**
+     * Start the server and database
+     * @param port - Port the server should run on
+     * @returns Server + Database handle
+     */
+
+    public async init(port: number): Promise<[typeof this.server, typeof this.db]> {
+
         try {
             await this.db.open();
             await this.db.run(`
             CREATE TABLE IF NOT EXISTS users (
-                id INTEGER PRIMARY KEY
+                id INTEGER PRIMARY KEY,
                 uuid TEXT
             )`)
         } catch (error) {
             console.error();
-            return error;
+            Promise.reject(error);
         } finally {
             await this.db.close();
         }
@@ -65,26 +76,29 @@ export class neutronServer {
                     }
                 } catch (err) {
                     res.status(500).json({ error: 'Internal Server Error' });
-                    reject(err);
                 } finally {
                     await this.db.close();
+                    next();
                 }
-                next();
             });
 
-            this.server.get('/', (req: Request, res: Response) => {
-                const clientUUID = req.get('client-uuid')
+            this.server.get('/', (res: Response) => {
+                /* const clientUUID = req.get('client-uuid') */
                 this.web.mainPage(res);
             });
 
-            this.server.get('/web.ts', (req: Request, res: Response) => {
+            this.server.get('/web.ts', (res: Response) => {
                 this.web.script(res);
             });
 
-            this.server.listen(port, () => {
-                console.log(`Neutron is running on ${port}`);
-                resolve(this.db);
-            });
+            try {
+                this.server.listen(port, () => {
+                    console.log(`Neutron is running on ${port}`);
+                    return resolve([this.server, this.db]);
+                });
+            } catch (err) {
+                reject(err);
+            }
         }
         )
     }
