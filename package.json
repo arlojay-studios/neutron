@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Server Module for Atomic",
   "main": "index.ts",
   "type": "module",
@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/arlojay-studios/neutron#readme",
   "dependencies": {
-    "@arlojay-studios/electron-atomic": "^0.0.8",
-    "@arlojay-studios/proton-atomic": "^0.0.7",
+    "@arlojay-studios/electron-atomic": "^0.0.9",
+    "@arlojay-studios/proton-atomic": "^0.0.8",
     "cookieparser": "^0.1.0",
     "express": "^4.18.2"
   },
