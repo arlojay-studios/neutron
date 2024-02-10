@@ -5,7 +5,7 @@
  */
 
 import type { Application } from 'express';
-import { cookieParser } from 'cookieParser'
+import { cookieparser } from 'cookie-parser'
 import { protonDB, protonUUID } from '@arlojay-studios/proton-atomic/'
 import { electron } from '@arlojay-studios/electron-atomic/';
 
@@ -55,7 +55,7 @@ export class neutron {
         return new Promise((resolve, reject) => {
 
             // wip 
-            this.neutron.use(cookieParser())
+            this.neutron.use(cookieparser())
 
             this.electron.page(this.neutron)
 
